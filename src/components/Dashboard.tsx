@@ -9,7 +9,7 @@ export default function Dashboard() {
 
   // Calculate stats
   const todayRemarks = remarks.filter((r) => isToday(r.date));
-  const yesterdayRemarks = remarks.filter((r) => isYesterday(r.date));
+  const yesterdayRemarks = remarks?.filter((r) => isYesterday(r?.date));
   const thisWeekRemarks = remarks.filter((r) => {
     const start = startOfWeek(new Date());
     const end = endOfWeek(new Date());
@@ -17,8 +17,13 @@ export default function Dashboard() {
   });
 
   const recentRemarks = remarks
-    ?.sort((a, b) => b?.createdAt.getTime() - a?.createdAt?.getTime())
+    ?.slice() // avoid mutating original array
+    ?.sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    )
     ?.slice(0, 5);
+  console.log("///", recentRemarks);
 
   const memberActivity = members.map((member) => ({
     ...member,
