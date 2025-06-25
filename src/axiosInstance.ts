@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000/api', // 🔁 Replace with your API base URL
+  baseURL: 'https://remarker.onrender.com/api', // 🔁 Replace with your API base URL
   timeout: 10000, // optional: request timeout in ms
   headers: {
     'Content-Type': 'application/json',
