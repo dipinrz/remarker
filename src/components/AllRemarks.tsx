@@ -22,23 +22,24 @@ export default function AllRemarks() {
   });
 
   // Sort remarks
-  filteredRemarks = filteredRemarks.sort((a, b) => {
-    let comparison = 0;
+ filteredRemarks = filteredRemarks.sort((a, b) => {
+  let comparison = 0;
 
-    switch (sortBy) {
-      case "date":
-        comparison = a.date.getTime() - b.date.getTime();
-        break;
-      case "member":
-        comparison = a.memberName.localeCompare(b.memberName);
-        break;
-      case "created":
-        comparison = a.createdAt.getTime() - b.createdAt.getTime();
-        break;
-    }
+  switch (sortBy) {
+    case "date":
+      comparison = new Date(a.date).getTime() - new Date(b.date).getTime();
+      break;
+    case "member":
+      comparison = a.memberName.localeCompare(b.memberName);
+      break;
+    case "created":
+      comparison =
+        new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+      break;
+  }
 
-    return sortOrder === "desc" ? -comparison : comparison;
-  });
+  return sortOrder === "desc" ? -comparison : comparison;
+});
 
   const handleDeleteRemark = (remarkId: string) => {
     if (window.confirm("Are you sure you want to delete this remark?")) {
