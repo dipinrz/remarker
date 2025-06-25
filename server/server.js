@@ -39,7 +39,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? ["https://your-domain.com"] // Replace with your production domain
+        ? ["https://remarker-2.vercel.app/"] // Replace with your production domain
         : ["http://localhost:3000", "http://localhost:5173"],
     credentials: true,
   })

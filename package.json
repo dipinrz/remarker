@@ -6,6 +6,7 @@
  
   "scripts": {
   "build": "vite build",
+  "client": "vite",
   "start": "node server/server.js"
 }
 ,
