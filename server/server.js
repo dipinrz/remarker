@@ -38,9 +38,7 @@ app.use(
 app.use(
   cors({
     origin:
-      process.env.NODE_ENV === "production"
-        ? ["https://remarker-2.vercel.app/"] // Replace with your production domain
-        : ["http://localhost:3000", "http://localhost:5173"],
+      '*',
     credentials: true,
   })
 );
