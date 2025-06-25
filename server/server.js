@@ -44,7 +44,7 @@ app.use(
 );
 
 // Rate limiting
-app.use("/api/", generalLimiter);
+// app.use("/api/", generalLimiter);
 
 // Body parsing middleware
 app.use(express.json({ limit: "10mb" }));

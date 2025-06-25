@@ -17,8 +17,8 @@ export default function Dashboard() {
   });
 
   const recentRemarks = remarks
-    .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
-    .slice(0, 5);
+    ?.sort((a, b) => b?.createdAt.getTime() - a?.createdAt?.getTime())
+    ?.slice(0, 5);
 
   const memberActivity = members.map((member) => ({
     ...member,
